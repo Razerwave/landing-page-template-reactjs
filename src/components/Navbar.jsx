@@ -13,7 +13,8 @@ import {
 // menu
 import DrawerItem from './DrawerItem';
 // rotas
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
+import logo from '../assets/logo.jpg';
 
 
 // personalizacao
@@ -21,6 +22,7 @@ const StyledToolbar = styled(Toolbar) ({
     display: 'flex',
     justifyContent: 'space-between',
 });
+
 
 const ListMenu = styled(List)(({ theme }) => ({
     display: 'none',
@@ -47,7 +49,7 @@ const itemList = [
 
 
 const Navbar = () => {
-    
+  const navigate = useNavigate(); 
     return (
         <AppBar 
         component="nav" 
@@ -58,13 +60,29 @@ const Navbar = () => {
         elevation={0}
         >
             <StyledToolbar>
-                <Typography
-                variant="h6"
-                component="h2"
-
-                >
-                    HBSales
-                </Typography>
+               <div className='w-9 h-9'>
+                  <img src={logo} alt='logo' className='rounded-full' onClick={() => navigate('/project')}/>
+               <div height="110" width="500">
+                <circle
+                  cx="50"
+                  cy="55"
+                  r="45"
+                  fill="none"
+                  stroke="#F0CE01"
+                  strokeWidth="4"
+                />
+    </div>
+               <div height="110" width="500">
+      <circle
+        cx="50"
+        cy="55"
+        r="45"
+        fill="none"
+        stroke="#F0CE01"
+        strokeWidth="4"
+      />
+    </div>
+               </div>
                 <Box sx={{display: { xs: 'block', sm: 'none' } }}>
                     <DrawerItem /> 
                 </Box>
